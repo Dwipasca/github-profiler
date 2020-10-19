@@ -1,7 +1,5 @@
-// console.log('Hello world!');
-// problem : we need a simple to look at github profile
-// solution : use NodeJS to connect to github API to get profile info and print out the console
 
+// Todo: [x] connect to github API
 let https = require('https');
 let options = {
     hostname: 'api.github.com',
@@ -12,9 +10,26 @@ let options = {
         'user-agent': 'first-App'
     }
 }
-// Todo: [x] connect to github API
+
+// Todo: [x] Read The data
 let request = https.request(options, (res) => {
+    // mengecek apakah response yang dikembalikan berhasil atau tidak
+    // response Code 200 = Sukses
+    // response Code 403 = Forbidden
     console.log('got response : '+ res.statusCode);
+    
+    // variavle body dibuat agar data yang dikembalikan bukanlah buffer
+    let body = '';
+    res.on('data', (data) => {
+        // console.log(data); -> data yang akan tmpil adalah buffer
+        body = body + data;
+    });
+
+    res.on('end', () => {
+        // ketika response sudah selesai lakukan kode program dibawah ini
+        console.log(body);
+    });
+
 })
 
 request.end();
@@ -23,7 +38,6 @@ request.on('error', (e) => {
     console.error(e);
 })
 
-// Todo: Read The data
 
 // Todo: Parse the data
 
