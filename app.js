@@ -35,16 +35,14 @@ let request = https.request(options, (res) => {
         // Convert String to JSON (Javascript Object)
         let profile = JSON.parse(body); // -> akan merubah yang tadinya string sekarang menjadi object
         // console.log(typeof(profile)); // hasilnya adalah object
-        console.log(profile); 
+        // Todo: [x] Print the data out 
+        console.log(`${profile.login} owns ${profile.public_repos} repo(s) and has ${profile.followers} followers `); 
     });
 
-    
-    
 
-    // Todo: Print the data out 
-
+    
 })
-
+ 
 request.end();
 
 request.on('error', (e) => {

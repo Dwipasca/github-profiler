@@ -8,4 +8,4 @@
 * Todo: [x] connect to github API
 * Todo: [x] Read The data
 * Todo: [x] Parse the data
-* Todo: [ ] Print the data out 
+* Todo: [x] Print the data out 
