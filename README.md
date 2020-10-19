@@ -9,3 +9,4 @@
 * Todo: [x] Read The data
 * Todo: [x] Parse the data
 * Todo: [x] Print the data out 
+* Todo: [x] Refactoring
