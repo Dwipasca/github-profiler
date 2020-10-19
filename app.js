@@ -27,8 +27,21 @@ let request = https.request(options, (res) => {
 
     res.on('end', () => {
         // ketika response sudah selesai lakukan kode program dibawah ini
-        console.log(body);
+        // console.log(body);
+
+        // console.log(typeof(body)); -> hasilnya yaitu string, ini alasan mengapa kita harus menggunakan json.parse agar datanya diubah kedalam bentuk object atau json
+
+        // Todo: [x] Parse the data
+        // Convert String to JSON (Javascript Object)
+        let profile = JSON.parse(body); // -> akan merubah yang tadinya string sekarang menjadi object
+        // console.log(typeof(profile)); // hasilnya adalah object
+        console.log(profile); 
     });
+
+    
+    
+
+    // Todo: Print the data out 
 
 })
 
@@ -39,6 +52,3 @@ request.on('error', (e) => {
 })
 
 
-// Todo: Parse the data
-
-// Todo: Print the data out 
